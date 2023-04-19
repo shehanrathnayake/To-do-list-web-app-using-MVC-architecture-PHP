@@ -1,9 +1,9 @@
 <?php
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 ?>
 
@@ -16,27 +16,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="view/assets/variables-style.css">
+    <link rel="stylesheet" type="text/css" href="view/assets/dolist-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <title>To Do List</title>
 </head>
 
 <body>
+    <header>
+        <h1>To Do List</h1>
+    </header>
+    <hr>
+
+    <section>
+
+        <div class="container">
+
+            <?php foreach ($dolist as $list) : ?>
+                <div class="task">
+                    <h3><?= $list['title'] ?></h3>
+                    <p><?= $list['body'] ?></p>
+                    <hr>
+
+                    <div class="change">
+                        <div class="date">
+                            <?php
+                            $timestamp = $list['target_date'];
+                            $targetdate = date("Y-m-d",$timestamp);
+                            echo "On ".$targetdate;
+                            ?>
+                        </div>
+                        <div class="icons">
+                            <a href="<?= $GLOBALS['site_url'] ?>/edit/<?= $list['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="<?= $GLOBALS['site_url'] ?>/delete/<?= $list['id'] ?>"><i class="fa-solid fa-trash"></i></a>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            <?php endforeach ?>
+
+        </div>
+
+    </section>
+
+
 
     <div class="add">
-        <a class="btn btn-primary" href="<?=$GLOBALS['site_url']?>/add">Add</a>
+        <a class="" href="<?= $GLOBALS['site_url'] ?>/add"><i class="fa-solid fa-plus"></i></a>
 
     </div>
 
-    <div>
-        <?php foreach ($dolist as $list) : ?>
-            <h1><?=$list['title']?></h1>
-            <p><?=$list['body']?></p>
-            <a class="btn btn-primary" href="<?=$GLOBALS['site_url']?>/edit/<?=$list['id']?>">Edit</a>
-            <a class="btn btn-primary" href="<?=$GLOBALS['site_url']?>/delete/<?=$list['id']?>">Delete</a>
-            <hr>
-        <?php endforeach ?>
-    </div>
-
+    <script src="https://kit.fontawesome.com/569015700f.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -4,7 +4,6 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +25,10 @@
         <form action="<?php echo $GLOBALS['site_url'];?>/save" method="POST">
             
             <input type="text" class="form-control mt-5 mx-2" name="title" id="title" value="No Title">
-            <label for="title">Title</label>
+            <!-- <label for="title">Title</label> -->
             
             <textarea name="body" class="form-control mt-5 mx-2" id="body" rows="5" value="No message" placeholder="No message.."></textarea>
-            <label for="body">message</label><br>
+            <!-- <label for="body">message</label><br> -->
 
             <button type="submit" class="btn btn-primary mt-5 mx-2" value="submit">Save</button>
 
