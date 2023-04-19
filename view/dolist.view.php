@@ -43,7 +43,7 @@ error_reporting(E_ALL);
                             <?php
                             $timestamp = $list['target_date'];
                             $targetdate = date("Y-m-d",$timestamp);
-                            echo "On ".$targetdate;
+                            echo '<i class="fa-regular fa-calendar"></i>'.' '.$targetdate;
                             ?>
                         </div>
                         <div class="icons">
