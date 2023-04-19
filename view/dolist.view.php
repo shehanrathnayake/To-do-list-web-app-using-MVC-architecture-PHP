@@ -31,6 +31,8 @@
         <?php foreach ($dolist as $list) : ?>
             <h1><?=$list['title']?></h1>
             <p><?=$list['body']?></p>
+            <a class="btn btn-primary" href="<?=$GLOBALS['site_url']?>/edit/<?=$list['id']?>">Edit</a>
+            <a class="btn btn-primary" href="<?=$GLOBALS['site_url']?>/delete/<?=$list['id']?>">Delete</a>
             <hr>
         <?php endforeach ?>
     </div>

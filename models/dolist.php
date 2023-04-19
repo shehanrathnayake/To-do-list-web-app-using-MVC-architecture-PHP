@@ -30,6 +30,32 @@ class Dolistmodel {
         return $stmt;
     }
 
+    public function editList ($id) {
+        $sql = "SELECT * FROM task WHERE id = $id";
+        $stmt = $this->db->query($sql);
+        $stmt->execute();
+        $dolist = $stmt -> fetch (PDO::FETCH_ASSOC);
+        return $dolist;
+    }
+
+    public function updateList ($title, $body, $id) {
+        $updated_date = time();
+        $target_date = time();
+        $status = 'notdone';
+        $sql = "UPDATE task SET title = '$title', body = '$body', created_date = '$updated_date', target_date = '$target_date', status = '$status' WHERE id = $id";
+        $stmt = $this->db->query($sql);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function deleteList ($id) {
+        $sql = "DELETE FROM task WHERE id = $id";
+        $stmt = $this->db->query($sql);
+        $stmt->execute();
+        $dolist = $stmt -> fetch (PDO::FETCH_ASSOC);
+        return $dolist;
+    }
+
 }
 
 ?>

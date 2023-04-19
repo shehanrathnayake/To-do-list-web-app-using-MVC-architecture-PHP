@@ -27,6 +27,24 @@ class Dolist {
         exit;
     }
 
+    public function editList($id) {
+        $dolist = $this->dolistmodel->editList($id);
+        require 'view/edit.view.php';
+        exit;
+    }
+
+    public function updateList() {
+        $this->dolistmodel->updateList($_POST['title'], $_POST['body'], $_POST['id']);
+        header("Location: $GLOBALS[site_url]");
+        exit;
+    }
+
+    public function deleteList($id) {
+        $this->dolistmodel->deleteList($id);
+        header("Location: $GLOBALS[site_url]");
+        exit;
+    }
+
 }
 
 ?>

@@ -8,17 +8,33 @@ require 'controllers/dolist.php';
 
 $url = trim(parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH));
 
-switch ($url) {
+$urls = explode('/',$url);
 
-    case '/add':
-        echo '/add case';
+switch ($urls[1]) {
+
+    case 'add':
         $dolist = new Dolist ();
         $dolist->addList();
         break;
 
-    case '/save':
+    case 'save':
         $dolist = new Dolist ();
         $dolist->saveList();
+        break;
+
+    case 'edit':
+        $dolist = new Dolist ();
+        $dolist->editList($urls[2]);
+        break;
+
+    case 'update':
+        $dolist = new Dolist ();
+        $dolist->updateList();
+        break;
+
+    case 'delete':
+        $dolist = new Dolist ();
+        $dolist->deleteList ($urls[2]);
         break;
 
     default:
