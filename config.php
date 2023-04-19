@@ -7,7 +7,7 @@ $config = [
     'database' => 'todolist',
     'username' => 'root',
     'password' => 'ShehanDj.123',
-    'site_url' => 'localhost:8080'
+    'site_url' => 'http://localhost:8000'
 
 ];
 

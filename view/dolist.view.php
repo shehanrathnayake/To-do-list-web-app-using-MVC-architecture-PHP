@@ -1,3 +1,14 @@
+<?php
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,17 +23,17 @@
 <body>
 
     <div class="add">
-        <a class="btn btn-primary" href="<?= $GLOBALS['site_url'] ?>/add">Add</a>
+        <a class="btn btn-primary" href="<?=$GLOBALS['site_url']?>/add">Add</a>
+
     </div>
 
     <div>
         <?php foreach ($dolist as $list) : ?>
-            <h1><?= $list['title']; ?></h1>
-            <p><?= $list['body']; ?></p>
+            <h1><?=$list['title']?></h1>
+            <p><?=$list['body']?></p>
             <hr>
         <?php endforeach ?>
     </div>
-
 
 </body>
 
