@@ -22,7 +22,7 @@ class Dolist {
     }
 
     public function saveList() {
-        $this->dolistmodel->saveList($_POST['title'], $_POST['body']);
+        $this->dolistmodel->saveList($_POST['title'], $_POST['body'], $_POST['date']);
         header("Location: $GLOBALS[site_url]");
         exit;
     }

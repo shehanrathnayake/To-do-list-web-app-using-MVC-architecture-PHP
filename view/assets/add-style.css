@@ -1,0 +1,49 @@
+header {margin:20px}
+
+/* body {width: 100%;} */
+
+.container {
+    margin: 10px;
+}
+
+.container h2 {margin-left: 10px;}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.container form button {
+    width: fit-content;
+}
+
+.container form #title, #body, #date {
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#date {margin-top: 10px;}
+
+.button {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: var(--secondary-color);
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.button a {
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+    margin-left: 20px;
+}

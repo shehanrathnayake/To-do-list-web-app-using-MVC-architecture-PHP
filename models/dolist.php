@@ -20,9 +20,9 @@ class Dolistmodel {
         return $dolist;
     }
 
-    public function saveList ($title, $body) {
+    public function saveList ($title, $body, $date) {
         $created_date = time();
-        $target_date = time();
+        $target_date = strtotime($date);
         $status = 'notdone';
         $sql = "INSERT INTO task (title, body, created_date, target_date, status) VALUES ('$title', '$body', '$created_date', '$target_date', '$status')";
         $stmt = $this->db->query($sql);
