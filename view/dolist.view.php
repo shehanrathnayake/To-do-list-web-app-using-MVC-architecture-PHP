@@ -65,6 +65,7 @@ error_reporting(E_ALL);
 
     <div class="add">
         <a class="" href="<?= $GLOBALS['site_url'] ?>/add"><i class="fa-solid fa-plus"></i></a>
+        <p>Add</p>
 
     </div>
 
