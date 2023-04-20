@@ -10,6 +10,8 @@ $url = trim(parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH));
 
 $urls = explode('/',$url);
 
+var_dump($urls);
+
 switch ($urls[1]) {
 
     case 'add':
@@ -35,6 +37,11 @@ switch ($urls[1]) {
     case 'delete':
         $dolist = new Dolist ();
         $dolist->deleteList ($urls[2]);
+        break;
+
+    case 'status':
+        $dolist = new Dolist ();
+        $dolist->statusList ($urls[2],$urls[3]);
         break;
 
     default:

@@ -24,9 +24,13 @@ error_reporting(E_ALL);
 
 <body>
     <header>
-        <h1>To Do List</h1>
+        <a href="<?= $GLOBALS['site_url'] ?>">
+            <h1>To Do List</h1>
+        </a>
+
     </header>
-    <hr>
+
+    <hr class="header-hr">
 
     <section>
 
@@ -34,7 +38,12 @@ error_reporting(E_ALL);
 
             <?php foreach ($dolist as $list) : ?>
                 <div class="task">
-                    <h3><?= $list['title'] ?></h3>
+                    <div class="title">
+                        <h3><?= $list['title'] ?></h3>
+                        
+
+                    </div>
+
                     <p><?= $list['body'] ?></p>
                     <hr>
 
@@ -42,15 +51,43 @@ error_reporting(E_ALL);
                         <div class="date">
                             <?php
                             $timestamp = $list['target_date'];
-                            $targetdate = date("Y-m-d",$timestamp);
-                            echo '<i class="fa-regular fa-calendar"></i>'.' '.$targetdate;
+                            $targetdate = date("Y-m-d", $timestamp);
+                            $today = time();
+                            if ($timestamp < $today && $list['status'] == 'notdone') {
+                                echo '<div style="color: red";> <i class="fa-regular fa-calendar"></i>' . ' ' . $targetdate . '</div>';
+                            } else {
+                                echo '<i class="fa-regular fa-calendar"></i>' . ' ' . $targetdate;
+                            }
                             ?>
                         </div>
+
                         <div class="icons">
+
+                            <div class="statuschange">
+                               
+                                <form action="<?= $GLOBALS['site_url'] ?>/status/<?=$list['id']?>/<?=$list['status']?>" method="POST">
+                                    <?php 
+                                    if ($list['status'] == 'notdone') {
+                                        $status = 'done';
+                                    } else {
+                                        $status = 'notdone';
+                                    } 
+                                    ?>
+                                    <input type="hidden" name="status" value="">
+                                    <?php
+                                    if ($list['status'] == 'done') {
+                                        echo '<button class="done" type="submit" value="submit">Done</button>';
+                                    } else {
+                                        echo '<button class="notdone" type="submit" value="submit">Done?</button>';
+                                    }
+                                    ?>
+                                </form>
+                            </div>
+
                             <a href="<?= $GLOBALS['site_url'] ?>/edit/<?= $list['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="<?= $GLOBALS['site_url'] ?>/delete/<?= $list['id'] ?>"><i class="fa-solid fa-trash"></i></a>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -60,8 +97,6 @@ error_reporting(E_ALL);
         </div>
 
     </section>
-
-
 
     <div class="add">
         <a class="" href="<?= $GLOBALS['site_url'] ?>/add"><i class="fa-solid fa-plus"></i></a>

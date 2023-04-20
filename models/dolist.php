@@ -56,6 +56,19 @@ class Dolistmodel {
         return $dolist;
     }
 
+    public function statusList ($id, $status) {
+        if ($status == 'done') {
+            $new_status = 'notdone';
+        } else {
+            $new_status = 'done';
+        }
+        $sql = "UPDATE task SET status = '$new_status' WHERE id = $id";
+        $stmt = $this->db->query($sql);
+        $stmt->execute();
+        $dolist = $stmt -> fetchAll (PDO::FETCH_ASSOC);
+        return $dolist;
+    }
+
 }
 
 ?>

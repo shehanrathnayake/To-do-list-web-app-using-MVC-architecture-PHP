@@ -45,6 +45,12 @@ class Dolist {
         exit;
     }
 
+    public function statusList($id, $status) {
+        $this->dolistmodel->statusList($id, $status);
+        header("Location: $GLOBALS[site_url]");
+        exit;
+    }
+
 }
 
 ?>
