@@ -22,7 +22,10 @@ error_reporting(E_ALL);
 <body>
 
     <header>
-        <h1>To Do List</h1>
+        <a href="<?= $GLOBALS['site_url'] ?>">
+            <h1>To Do List</h1>
+        </a>
+
     </header>
     <hr>
 

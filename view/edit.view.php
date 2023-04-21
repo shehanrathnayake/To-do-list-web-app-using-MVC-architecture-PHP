@@ -1,12 +1,3 @@
-<?php
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,31 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <title>To Do List: Add Task</title>
+    <link rel="stylesheet" type="text/css" href="view/assets/variables-style.css">
+    <link rel="stylesheet" type="text/css" href="view/assets/edit-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>To Do List: Edit Task</title>
 </head>
 
 <body>
 
-    <div class="container" style="width:100%; font-style:'Roboto'">
+    <header>
+        <a href="<?= $GLOBALS['site_url'] ?>">
+            <h1>To Do List</h1>
+        </a>
+    </header>
+    <hr>
 
-        <form action="<?php echo $GLOBALS['site_url'];?>/update" method="POST">
+    <div class="container">
+        <h2 style="font-family: 'Poppins', sans-serif;">Edit</h2>
 
-            <input type="hidden" name="id" value="<?=$dolist['id']?>">;
+        <form action="<?php echo $GLOBALS['site_url']?>/update" method="POST">
+            <br>
+            <input type="hidden" name="id" value="<?=$dolist['id']?>">
+            <input type="text" class="title" name="title" id="title" value="<?=$dolist['title']?>">
+            <!-- <label for="title">Title</label> -->
+            <br>
+            <textarea name="body" class="body" id="body" rows="5"><?=$dolist['body']?></textarea>
+            <!-- <label for="body">message</label><br> -->
+            <br>
+            <?php
+            $date = date("yyyy-mm-dd",$dolist['target_date']);
+            ?>
+            <input type="date" class="date" name="date" id="date" value="<?=$date?>">
+            <br>
             
-            <input type="text" class="form-control mt-5 mx-2" name="title" id="title" value="<?=$dolist['title']?>">
-            <label for="title">Title</label>
-            
-            <textarea name="body" class="form-control mt-5 mx-2" id="body" rows="5"><?=$dolist['body']?></textarea>
-            <label for="body">message</label><br>
-
-            <button type="submit" class="btn btn-primary mt-5 mx-2" value="submit">Update</button>
+            <div class="button">
+                <button type="submit" value="submit">Update</button>
+                <a href="<?php echo $GLOBALS['site_url'];?>">Cancel</a>
+            </div>
 
         </form>
 
     </div>
-
+    <script src="https://kit.fontawesome.com/569015700f.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

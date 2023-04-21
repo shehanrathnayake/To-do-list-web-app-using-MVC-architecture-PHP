@@ -20,7 +20,7 @@ header a {
 .container {margin: 110px 0 150px 0;}
 
 .task {
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 10px;
     padding: 10px;
     background-color: var(--secondary-color);
@@ -36,39 +36,6 @@ header a {
     justify-content: space-between;
     margin-top: 10px;
 }
-
-/* .checkbox {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.checkbox label {
-    font-weight: bold;
-} */
-
-/* .checkbox input {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 5px;
-    border: 1px solid black;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: white;
-}
-
-.checkbox input:checked {
-    background-color: black;
-} */
-
-/* .status {
-    border: 1px solid blue;
-} */
 
 .done {
     display: block;
@@ -95,12 +62,11 @@ header a {
 
 p {margin-bottom: 10px;}
 
-.change {margin-top: 10px;}
-
 .change {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .icons {width: 50%; display: flex; justify-content: space-around; align-items: center;}
