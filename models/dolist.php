@@ -13,7 +13,7 @@ class Dolistmodel {
     }
 
     public function getAllDolist () {
-        $sql = 'SELECT * FROM task ORDER BY id DESC';
+        $sql = "SELECT * FROM `task` ORDER BY status DESC, target_date ASC"; //Not done tasks will be shown first and all the tasks will be ascending order to target date
         $stmt = $this->db->query($sql);
         $stmt -> execute();
         $dolist = $stmt -> fetchAll (PDO::FETCH_ASSOC);
@@ -22,7 +22,11 @@ class Dolistmodel {
 
     public function saveList ($title, $body, $date) {
         $created_date = time();
-        $target_date = strtotime($date);
+        if ($date == '') {
+            $target_date = $created_date;
+        } else {
+            $target_date = strtotime($date);
+        }
         $status = 'notdone';
         $sql = "INSERT INTO task (title, body, created_date, target_date, status) VALUES ('$title', '$body', '$created_date', '$target_date', '$status')";
         $stmt = $this->db->query($sql);

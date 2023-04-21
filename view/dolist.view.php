@@ -34,15 +34,23 @@ error_reporting(E_ALL);
 
         <div class="container">
 
-            <?php foreach ($dolist as $list) : ?>
+            <?php
+            foreach ($dolist as $list) : 
+            ?>
                 <div class="task">
-                    <div class="title">
-                        <h3><?= $list['title'] ?></h3>
-                        
 
-                    </div>
+                    <?php
+                        if ($list['status'] == 'done'){
 
-                    <p><?= $list['body'] ?></p>
+                            echo '<div class="title"><h3 style="text-decoration: line-through;">'.$list["title"].'</h3></div>';
+    
+                            echo '<p style="text-decoration: line-through;">'.$list["body"].'</p>';
+                        } else {
+                            echo '<div class="title"><h3>'.$list["title"].'</h3></div>';
+    
+                            echo '<p>'.$list["body"].'</p>';
+                        }
+                    ?>
                     <hr>
 
                     <div class="change">
@@ -64,36 +72,42 @@ error_reporting(E_ALL);
                             <div class="statuschange">
                                
                                 <form action="<?= $GLOBALS['site_url'] ?>/status/<?=$list['id']?>/<?=$list['status']?>" method="POST">
-                                    <?php 
-                                    if ($list['status'] == 'notdone') {
-                                        $status = 'done';
-                                    } else {
-                                        $status = 'notdone';
-                                    } 
-                                    ?>
-                                    <input type="hidden" name="status" value="">
                                     <?php
                                     if ($list['status'] == 'done') {
                                         echo '<button class="done" type="submit" value="submit">Done</button>';
                                     } else {
-                                        echo '<button class="notdone" type="submit" value="submit">Done?</button>';
+                                        if ($timestamp < $today){
+                                            echo '<button style="background-color: red;" class="notdone" type="submit" value="submit">Done?</button>';
+                                        } else {
+                                            echo '<button class="notdone" type="submit" value="submit">Done?</button>';
+                                        }
                                     }
                                     ?>
                                 </form>
                             </div>
 
-                            <a href="<?= $GLOBALS['site_url'] ?>/edit/<?= $list['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="<?= $GLOBALS['site_url'] ?>/delete/<?= $list['id'] ?>"><i class="fa-solid fa-trash"></i></a>
+                            <?php
+                            if ($list['status'] == 'notdone'){
+                                if ($timestamp < $today) {
+                                    echo '<a style="color:red" href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
+
+                                    echo '<a style="color:red" href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
+
+                                } else {
+                                    echo '<a href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
+
+                                    echo '<a href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
+                                }
+                                
+                            } else{
+                                echo '<a href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
+                            }
+                            ?>
                         </div>
-
                     </div>
-
                 </div>
-
             <?php endforeach ?>
-
         </div>
-
     </section>
 
     <div class="add">

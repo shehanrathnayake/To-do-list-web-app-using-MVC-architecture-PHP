@@ -41,6 +41,7 @@ header a {
     display: block;
     margin: auto;
     color: black;
+    font-weight: 700;
     border-radius: 10px;
     background-color: white;
     font-size: 0.6rem;
@@ -52,10 +53,12 @@ header a {
     display: block;
     margin: auto;
     color: white;
+    font-weight: 700;
     border-radius: 10px;
     background-color: black;
     font-size: 0.6rem;
     padding: 2px 7px;
+    border: none;
 }
 
 .date, .icons {background-color: var(--secondary-color);}
