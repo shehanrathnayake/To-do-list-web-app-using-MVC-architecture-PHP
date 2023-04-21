@@ -13,7 +13,7 @@ class Dolistmodel {
     }
 
     public function getAllDolist () {
-        $sql = 'SELECT * FROM task';
+        $sql = 'SELECT * FROM task ORDER BY id DESC';
         $stmt = $this->db->query($sql);
         $stmt -> execute();
         $dolist = $stmt -> fetchAll (PDO::FETCH_ASSOC);
