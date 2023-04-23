@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../view/assets/variables-style.css">
-    <link rel="stylesheet" type="text/css" href="../view/assets/edit-style.css">
+    <link rel="stylesheet" type="text/css" href="../view/assets/css/variables-style.css">
+    <link rel="stylesheet" type="text/css" href="../view/assets/css/edit-style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <title>To Do List: Edit Task</title>
 </head>
@@ -27,13 +27,15 @@
             <br>
             <input type="hidden" name="id" value="<?=$dolist['id']?>">
             <input type="text" class="title" name="title" id="title" value="<?=$dolist['title']?>">
-            <!-- <label for="title">Title</label> -->
+
+            <p class="error_message"></p>
+            
             <br>
             <textarea name="body" class="body" id="body" rows="5"><?=$dolist['body']?></textarea>
-            <!-- <label for="body">message</label><br> -->
+            
             <br>
             <?php
-            $date = date("yyyy-mm-dd",$dolist['target_date']);
+            $date = date("Y-m-d",$dolist['target_date']);
             ?>
             <label for="date">Update Reminder</label>
             <input type="date" class="date" name="date" id="date" value="<?=$date?>">
@@ -47,6 +49,7 @@
         </form>
 
     </div>
+    <script src="../view/assets/js/validate.view.js"></script>
     <script src="https://kit.fontawesome.com/569015700f.js" crossorigin="anonymous"></script>
 </body>
 

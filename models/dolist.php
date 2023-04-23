@@ -20,7 +20,18 @@ class Dolistmodel {
         return $dolist;
     }
 
-    public function saveList ($title, $body, $date) {
+    public function saveList ($title_raw, $body, $date) {
+        $title = trim($title_raw);
+        if (empty($title)) {
+            exit;
+        } else {
+            
+            if (strlen($title) > 50) {
+                $title = mb_substr($title, 0, 50, "UTF-8");
+            }
+        }
+
+        if (empty(trim($body))) {$body = 'No Content';}
         $created_date = time();
         if ($date == '') {
             $target_date = $created_date;
@@ -42,11 +53,27 @@ class Dolistmodel {
         return $dolist;
     }
 
-    public function updateList ($title, $body, $id) {
-        $updated_date = time();
-        $target_date = time();
+    public function updateList ($title_raw, $body, $date, $id) {
+        $title = trim($title_raw);
+        if (empty($title)) {
+            // exit;
+        } else {
+            
+            if (strlen($title) > 50) {
+                $title = mb_substr($title, 0, 50, "UTF-8");
+            }
+        }
+
+        if (empty(trim($body))) {$body = 'No Content';}
+
+        if (empty($date)) {
+            $target_date = time();
+        } else {
+            $target_date = strtotime($date);
+        }
+        
         $status = 'notdone';
-        $sql = "UPDATE task SET title = '$title', body = '$body', created_date = '$updated_date', target_date = '$target_date', status = '$status' WHERE id = $id";
+        $sql = "UPDATE task SET title = '$title', body = '$body', target_date = '$target_date', status = '$status' WHERE id = $id";
         $stmt = $this->db->query($sql);
         $stmt->execute();
         return $stmt;

@@ -30,12 +30,7 @@ header a {
     margin-top: 10px;
 }
 
-.title {
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-}
+.task h3, p {white-space: normal; word-wrap: break-word;}
 
 .done {
     display: block;

@@ -34,7 +34,7 @@ class Dolist {
     }
 
     public function updateList() {
-        $this->dolistmodel->updateList($_POST['title'], $_POST['body'], $_POST['id']);
+        $this->dolistmodel->updateList($_POST['title'], $_POST['body'],$_POST['date'], $_POST['id']);
         header("Location: $GLOBALS[site_url]");
         exit;
     }

@@ -14,8 +14,8 @@ error_reporting(E_ALL);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="view/assets/variables-style.css">
-    <link rel="stylesheet" type="text/css" href="view/assets/dolist-style.css">
+    <link rel="stylesheet" type="text/css" href="view/assets/css/variables-style.css">
+    <link rel="stylesheet" type="text/css" href="view/assets/css/dolist-style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <title>To Do List</title>
 </head>
@@ -33,21 +33,20 @@ error_reporting(E_ALL);
     <section>
 
         <div class="container">
-
-            <?php
-            foreach ($dolist as $list) : 
-            ?>
+            
+            <?php foreach ($dolist as $list) : ?>
+            
                 <div class="task">
 
                     <?php
                         if ($list['status'] == 'done'){
 
-                            echo '<div class="title"><h3 style="text-decoration: line-through;">'.$list["title"].'</h3></div>';
-    
+                            echo '<h3 style="text-decoration: line-through;">'.$list["title"].'</h3>';
                             echo '<p style="text-decoration: line-through;">'.$list["body"].'</p>';
+
                         } else {
-                            echo '<div class="title"><h3>'.$list["title"].'</h3></div>';
-    
+
+                            echo '<h3>'.$list["title"].'</h3>';
                             echo '<p>'.$list["body"].'</p>';
                         }
                     ?>
@@ -58,8 +57,12 @@ error_reporting(E_ALL);
                             <?php
                             $timestamp = $list['target_date'];
                             $targetdate = date("Y-m-d", $timestamp);
-                            $today = time();
-                            if ($timestamp < $today && $list['status'] == 'notdone') {
+
+                            $today = new DateTime();
+                            $today->setTime(00, 00, 00);
+                            $todayTimestamp = $today->getTimestamp();
+
+                            if ($timestamp < $todayTimestamp && $list['status'] == 'notdone') {
                                 echo '<div style="color: red";> <i class="fa-regular fa-calendar"></i>' . ' ' . $targetdate . '</div>';
                             } else {
                                 echo '<i class="fa-regular fa-calendar"></i>' . ' ' . $targetdate;
@@ -76,7 +79,7 @@ error_reporting(E_ALL);
                                     if ($list['status'] == 'done') {
                                         echo '<button class="done" type="submit" value="submit">Done</button>';
                                     } else {
-                                        if ($timestamp < $today){
+                                        if ($timestamp < $todayTimestamp){
                                             echo '<button style="background-color: red;" class="notdone" type="submit" value="submit">Done?</button>';
                                         } else {
                                             echo '<button class="notdone" type="submit" value="submit">Done?</button>';
@@ -88,7 +91,7 @@ error_reporting(E_ALL);
 
                             <?php
                             if ($list['status'] == 'notdone'){
-                                if ($timestamp < $today) {
+                                if ($timestamp < $todayTimestamp) {
                                     echo '<a style="color:red" href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
 
                                     echo '<a style="color:red" href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
