@@ -56,7 +56,7 @@ class Dolistmodel {
     public function updateList ($title_raw, $body, $date, $id) {
         $title = trim($title_raw);
         if (empty($title)) {
-            // exit;
+            exit;
         } else {
             
             if (strlen($title) > 50) {
@@ -83,8 +83,9 @@ class Dolistmodel {
         $sql = "DELETE FROM task WHERE id = $id";
         $stmt = $this->db->query($sql);
         $stmt->execute();
-        $dolist = $stmt -> fetch (PDO::FETCH_ASSOC);
-        return $dolist;
+        return $stmt;
+        // $dolist = $stmt -> fetch (PDO::FETCH_ASSOC);
+        // return $dolist;
     }
 
     public function statusList ($id, $status) {

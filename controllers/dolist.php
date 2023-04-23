@@ -41,7 +41,7 @@ class Dolist {
 
     public function deleteList($id) {
         $this->dolistmodel->deleteList($id);
-        header("Location: $GLOBALS[site_url]");
+        // header("Location: $GLOBALS[site_url]");
         exit;
     }
 

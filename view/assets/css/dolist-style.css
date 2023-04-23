@@ -71,6 +71,69 @@ p {margin-bottom: 10px;}
 
 .icons a {color: var(--text-color);}
 
+/* .icons .trash {
+    appearance: none;
+} */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    /* background-color:rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 75vw;
+    height: 20vh;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    /* border: 2px solid var(--primary-color); */
+}
+
+.warn {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 5%;
+}
+
+.confirm-buttons {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.confirm-buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+
+.confirm-buttons button {
+    color: black;
+    background: none;
+    padding: 2.5px 5px;
+    border-radius: 7px;
+}
+
+.hide {display: none;}
+
+.show {display: flex;}
+
 .add {
     position: fixed;
     width: 100%;
@@ -79,7 +142,6 @@ p {margin-bottom: 10px;}
     justify-content: center;
     align-items: center;
     bottom: 40px;
-    z-index: 1;
 }
 
 .add a {

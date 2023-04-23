@@ -94,23 +94,36 @@ error_reporting(E_ALL);
                                 if ($timestamp < $todayTimestamp) {
                                     echo '<a style="color:red" href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
 
-                                    echo '<a style="color:red" href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
+                                    echo '<i style="color:red" id="trash" class="fa-solid fa-trash"></i>';
 
                                 } else {
                                     echo '<a href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
 
-                                    echo '<a href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
+                                    echo '<i id="trash" class="fa-solid fa-trash"></i>';
                                 }
                                 
                             } else{
-                                echo '<a href='.$GLOBALS['site_url'].'/delete/'.$list['id'].'><i class="fa-solid fa-trash"></i></a>';
+                                echo '<i id="trash" class="fa-solid fa-trash"></i>';
                             }
                             ?>
                         </div>
                     </div>
+
+                    <div id="popup" class="popup hide">
+                        <div class="pop-container">
+
+                            <div class="warn">Want to delete?</div>
+                            <div class="confirm-buttons">
+                                <a href="<?=$GLOBALS['site_url']?>/delete/<?=$list['id']?>">Delete</a>
+                                <button id="cancelBtn" type="button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
             <?php endforeach ?>
         </div>
+        
     </section>
 
     <div class="add">
@@ -118,7 +131,7 @@ error_reporting(E_ALL);
         <p>Add</p>
 
     </div>
-
+    <script src="../view/assets/js/popup.view.js"></script>
     <script src="https://kit.fontawesome.com/569015700f.js" crossorigin="anonymous"></script>
 </body>
 
