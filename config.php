@@ -3,10 +3,10 @@
 $config = [
 
     'host' => 'localhost',
-    'port' => '8080',
+    'port' => '3306',
     'database' => 'todolist',
     'username' => 'root',
-    'password' => 'ShehanDj.123',
+    'password' => 'root',
     'site_url' => 'http://localhost:8000'
 
 ];

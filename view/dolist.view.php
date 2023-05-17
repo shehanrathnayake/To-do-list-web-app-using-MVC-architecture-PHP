@@ -107,7 +107,7 @@ error_reporting(E_ALL);
                             }
                             ?>
                         </div>
-                    </div>
+                    </div> <!--Change-->
 
                     <div id="popup" class="popup hide">
                         <div class="pop-container">
