@@ -58,7 +58,7 @@ section {
     border-radius: 10px;
     background-color: var(--secondary-color);
     font-size: 0.6rem;
-    padding: 2px 7px;
+    padding: 3px 7px;
     border: 1px solid black;
 }
 
@@ -70,7 +70,7 @@ section {
     border-radius: 10px;
     background-color: black;
     font-size: 0.6rem;
-    padding: 2px 7px;
+    padding: 3px 7px;
     border: none;
 }
 
@@ -89,19 +89,13 @@ p {margin-bottom: 10px;}
 
 .icons a {color: var(--text-color);}
 
-/* .icons .trash {
-    appearance: none;
-} */
-
 .popup {
     position: fixed;
     top: 0;
     left: 0;
-    /* left: (screen.width – popupWinWidth) / 2; */
     width: 100%;
     height: 100vh;
     z-index: 1;
-    /* background-color:rgba(0, 0, 0, 0.5); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +110,7 @@ p {margin-bottom: 10px;}
     height: 200px;
     background-color: var(--primary-color);
     border-radius: 20px;
-    /* border: 2px solid var(--primary-color); */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 .warn {
@@ -145,8 +139,10 @@ p {margin-bottom: 10px;}
 .confirm-buttons button {
     color: black;
     background: none;
-    padding: 2.5px 5px;
+    padding: 2.5px 10px;
     border-radius: 7px;
+    border: 2px soild black;
+    font-weight: 500;
 }
 
 .hide {display: none;}
@@ -181,7 +177,6 @@ p {margin-bottom: 10px;}
     border-radius: 50%;
     background-color: #040303;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    /* text-align: center; */
 }
 
 .add p {font-weight: bold; background-color: var(--primary-color); margin-top: 5px;}
