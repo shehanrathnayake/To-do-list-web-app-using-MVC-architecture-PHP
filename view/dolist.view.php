@@ -16,7 +16,9 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="view/assets/css/variables-style.css">
     <link rel="stylesheet" type="text/css" href="view/assets/css/dolist-style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>To Do List</title>
 </head>
 
@@ -94,27 +96,27 @@ error_reporting(E_ALL);
                                 if ($timestamp < $todayTimestamp) {
                                     echo '<a style="color:red" href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
 
-                                    echo '<i style="color:red" id="trash" class="fa-solid fa-trash"></i>';
+                                    echo '<i style="color:red" id="trash" class="fa-solid fa-trash" data-id='.$list["id"].'></i>';
 
                                 } else {
                                     echo '<a href='.$GLOBALS['site_url'].'/edit/'. $list['id'].'><i class="fa-solid fa-pen-to-square"></i></a>';
 
-                                    echo '<i id="trash" class="fa-solid fa-trash"></i>';
+                                    echo '<i id="trash" class="fa-solid fa-trash" data-id='.$list["id"].'></i>';
                                 }
                                 
                             } else{
-                                echo '<i id="trash" class="fa-solid fa-trash"></i>';
+                                echo '<i id="trash" class="fa-solid fa-trash" data-id='.$list["id"].'></i>';
                             }
                             ?>
                         </div>
                     </div> <!--Change-->
 
-                    <div id="popup" class="popup hide">
+                    <div id="popup" class="popup hide border">
                         <div class="pop-container">
 
                             <div class="warn">Want to delete?</div>
                             <div class="confirm-buttons">
-                                <a href="<?=$GLOBALS['site_url']?>/delete/<?=$list['id']?>">Delete</a>
+                                <a id="confirm-delete" href="">Delete</a>
                                 <button id="cancelBtn" type="button">Cancel</button>
                             </div>
                         </div>
