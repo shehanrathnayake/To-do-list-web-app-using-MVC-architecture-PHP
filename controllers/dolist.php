@@ -23,6 +23,7 @@ class Dolist {
 
     public function saveList() {
         $this->dolistmodel->saveList($_POST['title'], $_POST['body'], $_POST['date']);
+        // $this->dolistmodel->saveList($_POST['title'], str_replace("\n", "\\n", $_POST['body']), $_POST['date']);
         header("Location: $GLOBALS[site_url]");
         exit;
     }
@@ -41,7 +42,7 @@ class Dolist {
 
     public function deleteList($id) {
         $this->dolistmodel->deleteList($id);
-        // header("Location: $GLOBALS[site_url]");
+        header("Location: $GLOBALS[site_url]");
         exit;
     }
 

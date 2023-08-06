@@ -44,12 +44,12 @@ error_reporting(E_ALL);
                         if ($list['status'] == 'done'){
 
                             echo '<h3 style="text-decoration: line-through;">'.$list["title"].'</h3>';
-                            echo '<p style="text-decoration: line-through;">'.$list["body"].'</p>';
+                            echo '<p style="text-decoration: line-through;">'.nl2br($list["body"]).'</p>';
 
                         } else {
 
                             echo '<h3>'.$list["title"].'</h3>';
-                            echo '<p>'.$list["body"].'</p>';
+                            echo '<p>'.nl2br($list["body"]).'</p>';
                         }
                     ?>
                     <hr>
