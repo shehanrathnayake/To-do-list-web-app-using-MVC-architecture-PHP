@@ -3,22 +3,6 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-// $error = '';
-// if($_SERVER['REQUEST_METHOD'] == 'POST'){
-//     if (empty(trim($_POST['title']))) {
-//         $error = 'Title cannot be empty';
-//         exit;
-//         // echo "<br><p style='color: red; font-weight: bold'>".$error."</p>";
-//     }
-
-//     else {
-//         $url = "$GLOBALS[site_url]/save";
-//         // header("Location: $GLOBALS[site_url]/save");
-//         // exit;
-//     }
-// }
-
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +26,7 @@ error_reporting(E_ALL);
         </a>
 
     </header>
-    <hr>
+    <hr class="header-hr">
 
     <div class="container">
         <h2>New</h2>
@@ -62,8 +46,8 @@ error_reporting(E_ALL);
             <br>
 
             <div class="button">
-                <button type="submit" value="submit">Save</button>
-                <a href="<?php echo $GLOBALS['site_url'];?>">Cancel</a>
+                <button class="action-btn" type="submit" value="submit">Save</button>
+                <a class="action-btn" href="<?php echo $GLOBALS['site_url'];?>">Cancel</a>
             </div>
             
         </form>

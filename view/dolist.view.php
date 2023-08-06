@@ -77,7 +77,7 @@ error_reporting(E_ALL);
                                 <form action="<?= $GLOBALS['site_url'] ?>/status/<?=$list['id']?>/<?=$list['status']?>" method="POST">
                                     <?php
                                     if ($list['status'] == 'done') {
-                                        echo '<button class="done" type="submit" value="submit">Done</button>';
+                                        echo '<button class="done" type="submit" value="submit">Completed</button>';
                                     } else {
                                         if ($timestamp < $todayTimestamp){
                                             echo '<button style="background-color: red;" class="notdone" type="submit" value="submit">Done?</button>';

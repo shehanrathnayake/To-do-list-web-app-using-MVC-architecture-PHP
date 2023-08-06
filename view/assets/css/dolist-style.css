@@ -1,9 +1,20 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
 header {
     padding:20px;
-    width: 100%;
+    width: 50%;
     position: fixed;
     top: 0;
     background-color: var(--primary-color);
+    
+    
+}
+
+.border {
+    border: 2px solid black;
 }
 
 header a {
@@ -12,15 +23,24 @@ header a {
 }
 
 .header-hr {
-    width: 100%;
+    width: 50%;
     position: fixed;
     top: 90px;
 }
 
-.container {margin: 110px 0 150px 0;}
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 110px;
+    width: 50%;
+}
 
 .task {
-    border-radius: 20px;
+    border-radius: 15px;
     margin: 10px;
     padding: 10px;
     background-color: var(--secondary-color);
@@ -67,7 +87,7 @@ p {margin-bottom: 10px;}
     margin-top: 10px;
 }
 
-.icons {width: 50%; display: flex; justify-content: space-around; align-items: center;}
+.icons {width: 40%; display: flex; justify-content: space-around; align-items: center;}
 
 .icons a {color: var(--text-color);}
 

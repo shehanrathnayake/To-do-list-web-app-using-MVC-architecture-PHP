@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../view/assets/css/variables-style.css">
-    <link rel="stylesheet" type="text/css" href="../view/assets/css/edit-style.css">
+    <link rel="stylesheet" type="text/css" href="../view/assets/css/add-style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <title>To Do List: Edit Task</title>
 </head>
@@ -18,7 +18,7 @@
             <h1>To Do List</h1>
         </a>
     </header>
-    <hr>
+    <hr class="header-hr">
 
     <div class="container">
         <h2>Edit</h2>
@@ -42,8 +42,8 @@
             <br>
             
             <div class="button">
-                <button type="submit" value="submit">Update</button>
-                <a href="<?php echo $GLOBALS['site_url'];?>">Cancel</a>
+                <button class="action-btn" type="submit" value="submit">Update</button>
+                <a class="action-btn" href="<?php echo $GLOBALS['site_url'];?>">Cancel</a>
             </div>
 
         </form>
