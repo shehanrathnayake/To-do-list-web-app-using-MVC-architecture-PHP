@@ -25,9 +25,9 @@ This is a to-do app mainly created using PHP, MySQL, and Bootstrap following MVC
 
 ## Sample Images
 
-![](/demo/img/to-do-app-screenshot.png)
-![](/demo/img/to-do-app-screenshots1.png)
-![](/demo/img/to-do-app-screenshots2.png)
+![](/demo/img/to-do-app-screenshot.jpg)
+![](/demo/img/to-do-app-screenshots1.jpg)
+![](/demo/img/to-do-app-screenshots2.jpg)
 
 ### Support
 
