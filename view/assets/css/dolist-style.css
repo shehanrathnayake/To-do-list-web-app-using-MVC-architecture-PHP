@@ -35,6 +35,7 @@ section {
 .container {
     margin-top: 110px;
     width: 50%;
+    margin-bottom: 150px;
 }
 
 .task {
